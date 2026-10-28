@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Гаврилина Студио — салон красоты в Электростали</title>
+<meta name="description" content="Маникюр, стрижки, макияж и образы на ул. Мира, 12 в Электростали. Ежедневно 9:00–21:00. 5,0 на Яндекс Картах.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Idea: золотые вертикальные светильники студии становятся единственным акцентом страницы — тонкая линия цвета розового золота из логотипа */
+:root{
+  --bone:#f1ece6; --paper:#faf7f3; --stone:#d9d2ca; --ink:#2a2421; --muted:#6f645d;
+  --rose:#b07f63; --rose-ink:#fff;
+  --f-display:"Prata",Georgia,"Times New Roman",serif;
+  --f-text:"Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --s-small:clamp(.8125rem,.79rem + .1vw,.875rem);
+  --s-body:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --s-lead:clamp(1.25rem,1.1rem + .7vw,1.625rem);
+  --s-head:clamp(2.25rem,1.3rem + 3.6vw,4.25rem);
+  --s-hero:clamp(3.5rem,1rem + 9vw,9.5rem);
+  --m:max(16px,4vw);
+  --r:2px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--ink);font:400 var(--s-body)/1.55 var(--f-text);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{padding-left:max(var(--m),env(safe-area-inset-left,0px));padding-right:max(var(--m),env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;letter-spacing:-.01em;line-height:1;margin:0;text-wrap:balance}
+.eyebrow{font-size:var(--s-small);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:52px;padding:0 1.6em;border-radius:var(--r);background:var(--rose);color:var(--rose-ink);font:500 1rem var(--f-text);text-decoration:none;transition:background .25s}
+.btn:hover{background:#9a6b51}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--bone)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+
+/* demo strip */
+.demo{background:var(--ink);color:var(--bone);font-size:var(--s-small);text-align:center;padding-block:8px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);min-height:min(100svh,980px)}
+.hero-text{display:flex;flex-direction:column;justify-content:space-between;gap:40px;padding-block:28px 40px}
+.hero nav{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:var(--s-small)}
+.hero nav .logo{font-family:var(--f-display);font-size:1.25rem}
+.hero nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.hero nav a{text-decoration:none}
+.hero h1{font-size:var(--s-hero);line-height:.9}
+.hero h1 span{display:block}
+.hero h1 span+span{padding-left:.9em}
+.hero .sub{display:grid;gap:22px;max-width:30rem}
+.hero .sub p{margin:0;font-size:var(--s-lead);line-height:1.35}
+.hero .sub .row{display:flex;flex-wrap:wrap;gap:10px}
+.rating{display:flex;align-items:baseline;gap:12px;font-size:var(--s-small);color:var(--muted)}
+.rating b{font-family:var(--f-display);font-size:2.4rem;color:var(--ink);font-weight:400}
+.hero-photo{position:relative;min-height:60svh}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-photo::after{content:"";position:absolute;top:0;bottom:0;left:18%;width:2px;background:linear-gradient(#d9b48f,#b07f63);opacity:.85}
+
+/* services */
+.services{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;padding-block:clamp(64px,10vw,140px)}
+.services h2{font-size:var(--s-head)}
+.services .lead{margin:20px 0 0;color:var(--muted);max-width:28rem}
+.price{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.price th{font:500 var(--s-small) var(--f-text);color:var(--muted);text-align:left;padding:0 0 12px;letter-spacing:.06em;text-transform:uppercase}
+.price td{padding:18px 0;border-top:1px solid var(--stone);vertical-align:baseline}
+.price td:first-child{font-size:var(--s-lead);font-family:var(--f-display)}
+.price td:last-child{text-align:right;white-space:nowrap;padding-left:16px}
+.price small{display:block;font:400 var(--s-small) var(--f-text);color:var(--muted);margin-top:4px}
+
+/* gallery */
+.gallery{padding-block:0 clamp(64px,10vw,140px)}
+.gallery-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+.gallery-head h2{font-size:var(--s-head)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px}
+.grid figure{margin:0;overflow:hidden;background:var(--stone)}
+.grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/4;transition:transform .6s}
+.grid figure:hover img{transform:scale(1.03)}
+.g1{grid-column:1/6;grid-row:span 2}.g1 img{aspect-ratio:auto}
+.g2{grid-column:6/9}.g3{grid-column:9/13}.g4{grid-column:6/10}.g5{grid-column:10/13}
+
+/* quote */
+.quote{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--ink);color:var(--bone)}
+.quote figure{margin:0;min-height:420px;position:relative}
+.quote figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.quote blockquote{margin:0;display:flex;flex-direction:column;justify-content:center;gap:28px;padding-block:clamp(56px,8vw,120px)}
+.quote p{font-family:var(--f-display);font-size:clamp(1.75rem,1rem + 2.2vw,3rem);line-height:1.15;margin:0;max-width:22ch}
+.quote cite{font-style:normal;font-size:var(--s-small);color:#b9ada4}
+
+/* certificate (live thing) */
+.cert{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center;padding-block:clamp(64px,10vw,140px)}
+.cert h2{font-size:var(--s-head)}
+.cert p{color:var(--muted);max-width:30rem}
+.amounts{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}
+.amounts button{min-height:48px;padding:0 18px;border-radius:var(--r);border:1px solid var(--ink);background:transparent;color:var(--ink);font:500 1rem var(--f-text);cursor:pointer;font-variant-numeric:tabular-nums}
+.amounts button[aria-pressed="true"]{background:var(--ink);color:var(--bone)}
+.card{aspect-ratio:1.75/1;max-width:100%;background:var(--paper);border:1px solid var(--stone);padding:clamp(20px,4vw,36px);display:flex;flex-direction:column;justify-content:space-between;position:relative;box-shadow:0 30px 60px -30px rgba(42,36,33,.35)}
+.card::before{content:"";position:absolute;top:12%;bottom:12%;right:14%;width:2px;background:linear-gradient(#d9b48f,#b07f63)}
+.card .mono{font-family:var(--f-display);font-size:1.1rem}
+.card .sum{font-family:var(--f-display);font-size:clamp(2.5rem,1.5rem + 3vw,4rem);line-height:1;font-variant-numeric:tabular-nums}
+.card .small{font-size:var(--s-small);color:var(--muted)}
+
+/* visit */
+.visit{position:relative;min-height:640px;display:flex;align-items:center}
+.visit>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.visit .box{position:relative;background:var(--paper);padding:clamp(28px,4vw,48px);max-width:460px;display:grid;gap:18px;margin-block:64px}
+.visit h2{font-size:clamp(2rem,1.4rem + 2vw,3rem)}
+.visit dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 20px;font-size:1rem}
+.visit dt{color:var(--muted)}
+.visit dd{margin:0}
+.visit .row{display:flex;flex-wrap:wrap;gap:10px}
+
+footer{padding-block:40px 110px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:var(--s-small);color:var(--muted)}
+
+/* mobile bar */
+.bar{display:none}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-photo{order:-1;min-height:62svh}
+  .hero-text{padding-block:24px 36px}
+  .hero nav{position:absolute;top:calc(env(safe-area-inset-top,0px) + 44px);left:0;right:0;padding-inline:max(16px,env(safe-area-inset-left,0px));color:#fff;z-index:2}
+  .hero nav ul{display:none}
+  .hero{position:relative}
+  .hero h1 span+span{padding-left:.6em}
+  .services,.cert{grid-template-columns:1fr;gap:28px}
+  .quote{grid-template-columns:1fr}
+  .quote figure{min-height:360px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g1,.g2,.g3,.g4,.g5{grid-column:auto;grid-row:auto}
+  .g1{grid-column:1/3}.g1 img{aspect-ratio:4/5}
+  .visit{min-height:auto;padding-top:260px}
+  .visit .box{margin-block:0 0;max-width:none}
+  .bar{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(241,236,230,.94);backdrop-filter:blur(10px);padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));border-top:1px solid var(--stone)}
+  .bar a{min-height:48px;font-size:.95rem;padding:0 10px}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 span{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 span+span{animation-delay:.12s}
+  @keyframes rise{from{opacity:.001;transform:translateY(24px)}to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+<div class="demo wrap">Демо-версия сайта для «Гаврилина Студио». Подготовил Пётр Алексеев, Электросталь</div>
+
+<header class="hero">
+  <div class="hero-text wrap">
+    <nav aria-label="Меню">
+      <span class="logo">gs</span>
+      <ul><li><a href="#uslugi">Услуги</a></li><li><a href="#raboty">Работы</a></li><li><a href="#sertifikat">Сертификат</a></li><li><a href="#kontakty">Контакты</a></li></ul>
+    </nav>
+    <h1><span>Гаврилина</span><span>Студио</span></h1>
+    <div class="sub">
+      <p>Маникюр, стрижки, макияж и образы на Мира, 12. Каждый день с 9 до 21.</p>
+      <div class="row"><a class="btn" href="https://wa.me/79168037101">Записаться</a><a class="btn ghost" href="#uslugi">Цены</a></div>
+      <div class="rating"><b>5,0</b><span>326 оценок на Яндекс Картах</span></div>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="https://avatars.mds.yandex.net/get-altay/10350441/2a0000018dc163497aa3383d2bc12863e373/orig" width="1536" height="2048" alt="Рабочее место мастера в Гаврилина Студио">
+  </div>
+</header>
+
+<main>
+<section class="services wrap" id="uslugi">
+  <div>
+    <h2>Услуги и цены</h2>
+    <p class="lead">Цены с карточки студии на Яндекс Картах. Точная стоимость зависит от мастера и длины.</p>
+  </div>
+  <div style="overflow-x:auto">
+  <table class="price">
+    <thead><tr><th>Услуга</th><th style="text-align:right">Цена</th></tr></thead>
+    <tbody>
+      <tr><td>Маникюр с покрытием<small>классический женский</small></td><td>2 390–3 000 ₽</td></tr>
+      <tr><td>Женская стрижка</td><td>900–2 000 ₽</td></tr>
+      <tr><td>Мужская стрижка</td><td>900–1 350 ₽</td></tr>
+      <tr><td>Педикюр</td><td>по прайсу</td></tr>
+      <tr><td>Макияж и укладка<small>образы на выпускной, свадьбу, праздник</small></td><td>по прайсу</td></tr>
+      <tr><td>Окрашивание, косметология, эпиляция</td><td>по прайсу</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section class="gallery wrap" id="raboty">
+  <div class="gallery-head"><h2>Студия и работы</h2><a class="btn ghost" href="https://yandex.ru/maps/org/gavrilina_studio/233822811170/gallery/">Все 71 фото</a></div>
+  <div class="grid">
+    <figure class="g1"><img src="https://avatars.mds.yandex.net/get-altay/15439859/2a0000019522385f14e9900dc32f6db49bf4/XXXL" width="960" height="1280" loading="lazy" alt="Зона макияжа с зеркалами"></figure>
+    <figure class="g2"><img src="https://avatars.mds.yandex.net/get-altay/11395677/2a0000018dcad27df58f45f66b16610beb46/XXXL" width="960" height="1280" loading="lazy" alt="Маникюр: красный френч"></figure>
+    <figure class="g3"><img src="https://avatars.mds.yandex.net/get-altay/15502563/2a0000019519cba96043acd6fc26f99224fa/XXXL" width="960" height="1280" loading="lazy" alt="Маникюр в сиреневом цвете"></figure>
+    <figure class="g4"><img src="https://avatars.mds.yandex.net/get-altay/14392184/2a0000019522385f0215ae9e3840d3a0745a/XXXL" width="960" height="1280" loading="lazy" alt="Мойка в зоне парикмахера"></figure>
+    <figure class="g5"><img src="https://avatars.mds.yandex.net/get-altay/10111752/2a0000018dc16555e643e9f7fbfbdd0e1bcd/XXXL" width="960" height="1280" loading="lazy" alt="Тюльпаны на стойке администратора"></figure>
+  </div>
+</section>
+
+<section class="quote">
+  <figure><img src="https://avatars.mds.yandex.net/get-altay/8377501/2a0000018dc164ef31e147f9272a208b99e0/XXXL" width="960" height="1280" loading="lazy" alt="Кресла и зеркала в студии"></figure>
+  <blockquote class="wrap">
+    <p>«Делала образ у Натальи на выпускной, укладка и макияж держались весь день и до утра»</p>
+    <cite>Отзыв клиентки на Яндекс Картах</cite>
+  </blockquote>
+</section>
+
+<section class="cert wrap" id="sertifikat">
+  <div>
+    <h2>Подарочный сертификат</h2>
+    <p>Подарите маникюр, стрижку или образ к празднику. Выберите сумму, а оформим в студии или пришлём в мессенджер.</p>
+    <div class="amounts" role="group" aria-label="Сумма сертификата">
+      <button type="button" id="a2" data-v="2 000">2 000 ₽</button>
+      <button type="button" id="a3" data-v="3 000" aria-pressed="true">3 000 ₽</button>
+      <button type="button" id="a5" data-v="5 000">5 000 ₽</button>
+      <button type="button" id="a10" data-v="10 000">10 000 ₽</button>
+    </div>
+    <a class="btn" id="certbtn" href="https://wa.me/79168037101">Заказать сертификат</a>
+  </div>
+  <div class="card" aria-live="polite">
+    <span class="mono">Гаврилина Студио</span>
+    <span class="sum"><span id="sum">3 000</span> ₽</span>
+    <span class="small">Подарочный сертификат · ул. Мира, 12, Электросталь</span>
+  </div>
+</section>
+
+<section class="visit wrap" id="kontakty">
+  <img src="https://avatars.mds.yandex.net/get-altay/11022524/2a0000018dc1634772621b99db17bd3f76fe/XXXL" width="960" height="1280" loading="lazy" alt="Интерьер студии">
+  <div class="box">
+    <h2>Ждём на Мира, 12</h2>
+    <dl>
+      <dt>Адрес</dt><dd>Электросталь, ул. Мира, 12</dd>
+      <dt>Часы</dt><dd>Ежедневно 9:00–21:00</dd>
+      <dt>Телефон</dt><dd>+7 (916) 803-71-01</dd>
+      <dt>Парковка</dt><dd>есть</dd>
+    </dl>
+    <div class="row">
+      <a class="btn" href="https://wa.me/79168037101">WhatsApp</a>
+      <a class="btn ghost" href="https://t.me/gavrilinastud">Telegram</a>
+      <a class="btn ghost" href="https://yandex.ru/maps/org/gavrilina_studio/233822811170/">Маршрут</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="wrap"><span>© Гаврилина Студио, Электросталь</span><span><a href="https://vk.ru/gavrilinastudio">VK</a> · <a href="https://t.me/gavrilinastud">Telegram</a></span><span>Демо: Пётр Алексеев · petr-alekseev.ru</span></footer>
+
+<nav class="bar" aria-label="Быстрые действия">
+  <a class="btn" href="https://wa.me/79168037101">Записаться</a>
+  <a class="btn ghost" href="tel:+79168037101">Позвонить</a>
+  <a class="btn ghost" href="https://yandex.ru/maps/org/gavrilina_studio/233822811170/">Маршрут</a>
+</nav>
+
+<script>
+const bs=[...document.querySelectorAll('.amounts button')],sum=document.getElementById('sum'),cb=document.getElementById('certbtn');
+bs.forEach(b=>b.addEventListener('click',()=>{bs.forEach(x=>x.setAttribute('aria-pressed',x===b));sum.textContent=b.dataset.v;cb.href='https://wa.me/79168037101?text='+encodeURIComponent('Здравствуйте! Хочу подарочный сертификат на '+b.dataset.v+' ₽');}));
+</script>
+</body>
+</html>
