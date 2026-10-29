@@ -45,20 +45,20 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 
 /* Первый экран */
-.hero{position:relative;overflow:hidden;min-height:calc(100svh - 120px);min-height:max(640px,calc(100svh - 120px));display:flex;flex-direction:column}
-.hero .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(16px,3vw,48px);align-items:end;flex:1;padding-top:clamp(8px,2vw,24px);padding-bottom:230px}
-.eyebrow{font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hero{position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:clamp(4px,1.5vw,20px);padding-bottom:28px}
+.eyebrow{font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
 .eyebrow i{width:28px;height:2px;background:var(--gold);display:inline-block}
-h1{font-family:var(--display);font-weight:800;text-transform:uppercase;color:var(--berry);font-size:clamp(150px,27vw,400px);line-height:.82;letter-spacing:-.01em;margin:clamp(8px,2vw,20px) 0 0 -.04em;white-space:nowrap}
-.slogan{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(18px,2.2vw,30px);letter-spacing:.06em;line-height:1.15;margin-top:clamp(14px,2vw,26px);max-width:18em;background:#fff;display:inline-block;padding:6px 0}
-.lead{margin-top:10px;max-width:34em;font-size:clamp(16px,1.4vw,19px);background:#fff;display:inline-block}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-.arch{justify-self:end;width:min(100%,430px);aspect-ratio:3/4;border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--blush);border:6px solid #fff;box-shadow:0 0 0 2px var(--gold),0 30px 60px -30px rgba(20,17,26,.5);position:relative}
+h1{font-family:var(--display);font-weight:800;text-transform:uppercase;color:var(--berry);font-size:clamp(150px,26vw,380px);line-height:.82;letter-spacing:-.01em;margin:clamp(8px,2vw,20px) 0 0;white-space:nowrap;position:relative;z-index:1}
+.arch{width:min(70%,300px);aspect-ratio:3/4;margin-top:clamp(-90px,-6vw,-40px);border-radius:999px 999px 14px 14px;overflow:hidden;background:var(--blush);border:6px solid #fff;box-shadow:0 0 0 2px var(--gold),0 30px 60px -30px rgba(20,17,26,.5);position:relative;z-index:2}
 .arch img{width:100%;height:100%;object-fit:cover}
-.arch figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(20,17,26,.7));color:#fff;font-size:13px;padding:36px 16px 14px;text-align:center}
+.bar{position:relative;z-index:3;margin-top:22px;background:#fff;border:2px solid var(--ink);border-radius:22px;padding:14px 20px;display:flex;gap:14px 28px;align-items:center;justify-content:center;flex-wrap:wrap}
+.facts{font-weight:600;font-size:16px}
+.facts b{font-family:var(--display);font-weight:800;color:var(--berry);font-size:22px}
+.cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 
 /* Шахматный пол */
-.floor-wrap{position:absolute;left:-10%;right:-10%;bottom:0;height:200px;z-index:1;perspective:420px;perspective-origin:50% 0;pointer-events:none}
+.floor-wrap{position:absolute;left:-10%;right:-10%;bottom:0;height:300px;z-index:1;perspective:420px;perspective-origin:50% 0;pointer-events:none}
 .floor{position:absolute;inset:0;transform-origin:50% 0;transform:rotateX(60deg) scale(1.3);height:300%;
   background:conic-gradient(var(--ink) 25%,#fff 0 50%,var(--ink) 0 75%,#fff 0) 0 var(--shift,0px)/110px 110px;
   -webkit-mask-image:linear-gradient(transparent 0,#000 30%);mask-image:linear-gradient(transparent 0,#000 30%)}
@@ -147,11 +147,7 @@ footer b{color:#fff;font-family:var(--display);letter-spacing:.06em;text-transfo
 
 @media (max-width:900px){
   .top nav{display:none}
-  .hero .wrap{grid-template-columns:1fr;align-items:start}
-  .arch{justify-self:start;width:min(62%,260px);margin-top:6px;position:relative;z-index:2}
-  .hero{min-height:0}
-  .hero .wrap{padding-bottom:150px}
-  .floor-wrap{height:130px}
+  .floor-wrap{height:240px}
   .svc-grid,.quotes,.c-grid{grid-template-columns:1fr}
   .svc-photos{order:-1}
   .works-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
@@ -166,7 +162,9 @@ footer b{color:#fff;font-family:var(--display);letter-spacing:.06em;text-transfo
 @media (max-width:480px){
   body{font-size:16px}
   .top .tel{display:none}
-  .cta .btn{flex:1 1 100%}
+  .cta{width:100%}.cta .btn{flex:1 1 100%}
+  .arch{width:min(66%,240px)}
+  .eyebrow{font-size:12px}
   .menu li{padding:14px 0}
 }
 @media (prefers-reduced-motion:reduce){
@@ -194,19 +192,18 @@ footer b{color:#fff;font-family:var(--display);letter-spacing:.06em;text-transfo
 <main id="top">
 <div class="hero">
   <div class="wrap">
-    <div>
-      <div class="eyebrow"><i></i>Салон красоты · ул. Николаева, 9 · ежедневно 10–21</div>
-      <h1 id="h1">Эль</h1>
-      <p class="slogan">Стрижка. Ногти. Уход. Для неё и для него.</p>
-      <p class="lead">Записывайтесь заранее по телефону или в WhatsApp. Оплата картой, рядом парковка.</p>
+    <div class="eyebrow"><i></i>Салон красоты · ул. Николаева, 9 · ежедневно 10–21<i></i></div>
+    <h1 id="h1">Эль</h1>
+    <figure class="arch">
+      <img src="https://avatars.mds.yandex.net/get-altay/6195924/2a00000190541194dda55c3e7c6ab9eef8fb/XXXL" width="960" height="1280" alt="Длинный зал салона «Эль» с креслами и шахматным полом" fetchpriority="high">
+    </figure>
+    <div class="bar">
+      <p class="facts"><b>4,9</b> · 470 оценок · Николаева, 9 · 10–21</p>
       <div class="cta">
         <a class="btn main" href="https://wa.me/79266065810">Записаться в WhatsApp</a>
         <a class="btn line" href="tel:+79266065810">Позвонить</a>
       </div>
     </div>
-    <figure class="arch">
-      <img src="https://avatars.mds.yandex.net/get-altay/6195924/2a00000190541194dda55c3e7c6ab9eef8fb/XXXL" width="960" height="1280" alt="Длинный зал салона «Эль» с креслами и шахматным полом" fetchpriority="high">
-    </figure>
   </div>
   <div class="floor-wrap" aria-hidden="true"><div class="floor" id="floor"></div></div>
 </div>
@@ -219,10 +216,10 @@ footer b{color:#fff;font-family:var(--display);letter-spacing:.06em;text-transfo
       <div>
         <ul class="menu">
           <li><span class="n">Маникюр с покрытием</span><span class="p">800–2 000 ₽</span><span class="d">Классический женский</span></li>
-          <li><span class="n">Женская стрижка</span><span class="p">950–1 000 ₽</span><span class="d">Парикмахерский зал</span></li>
+          <li><span class="n">Женская стрижка</span><span class="p">950–1 000 ₽</span></li>
           <li><span class="n">Мужская стрижка</span><span class="p">900–1 500 ₽</span><span class="d">Барбершоп</span></li>
-          <li><span class="n">Окрашивание, хна</span><span class="p soft">по прайсу</span><span class="d">Окрашивание и окрашивание хной</span></li>
-          <li><span class="n">Педикюр</span><span class="p soft">по прайсу</span><span class="d">Педикюрное кресло</span></li>
+          <li><span class="n">Окрашивание, хна</span><span class="p soft">по прайсу</span><span class="d">Окрашивание, в том числе хной</span></li>
+          <li><span class="n">Педикюр</span><span class="p soft">по прайсу</span></li>
           <li><span class="n">Наращивание ногтей</span><span class="p soft">по прайсу</span></li>
           <li><span class="n">Мужской ногтевой сервис</span><span class="p soft">по прайсу</span></li>
           <li><span class="n">Косметология</span><span class="p soft">по прайсу</span></li>
@@ -295,7 +292,7 @@ footer b{color:#fff;font-family:var(--display);letter-spacing:.06em;text-transfo
     <h2>После них чувствуешь себя <em>королевой</em></h2>
     <div class="quotes">
       <div>
-        <blockquote>Маникюр и педикюр огонь! Рекомендую! Мастер Елена, внимательна и аккуратная. Большой выбор цветовой гаммы, уютно, комфортно!<cite>Из отзыва на Яндекс Картах</cite></blockquote>
+        <blockquote>Маникюр и педикюр огонь!!! Рекомендую! Мастер Елена, внимательна и аккуратная. Большой выбор цветовой гаммы, телевизор, уютно, комфортно!<cite>Из отзыва на Яндекс Картах</cite></blockquote>
         <blockquote class="s" style="margin-top:28px">Хочется выразить огромную благодарность мастеру-парикмахеру Юле и косметологу Але… После них чувствуешь себя просто королевой.<cite>Из отзыва на Яндекс Картах</cite></blockquote>
       </div>
       <div>
