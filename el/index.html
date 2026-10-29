@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Эль — салон красоты, Электросталь (демо)</title>
+<meta name="description" content="Салон красоты «Эль», Электросталь, ул. Николаева, 9. Ежедневно 10:00–21:00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600&family=Jost:wght@500;700;800&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --ink:#14111A; --white:#fff; --berry:#D4126F; --gold:#C9A24A; --blush:#FBE3EE;
+  --display:"Jost","Futura","Century Gothic","Trebuchet MS",Arial,sans-serif;
+  --text:"Commissioner","Segoe UI",Roboto,Arial,sans-serif;
+  --pad:clamp(18px,4vw,64px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--text);color:var(--ink);background:var(--white);line-height:1.5;font-size:17px;overflow-x:hidden;padding-bottom:0}
+img{display:block;max-width:100%;color:transparent;font-size:0}
+a{color:inherit}
+.wrap{padding-inline:var(--pad);max-width:1440px;margin-inline:auto}
+.disp{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em}
+
+/* Демо-плашка */
+.demo{background:var(--ink);color:#fff;font-size:13px;line-height:1.35;padding:8px var(--pad);text-align:center}
+.demo b{color:var(--gold);font-weight:600}
+
+/* Шапка */
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px var(--pad);max-width:1440px;margin:auto;position:relative;z-index:3}
+.logo{font-family:var(--display);font-weight:800;font-size:22px;color:var(--berry);text-decoration:none;letter-spacing:.04em}
+.top nav{display:flex;gap:28px;font-weight:500;font-size:15px}
+.top nav a{text-decoration:none}
+.top nav a:hover{color:var(--berry)}
+.top .tel{font-weight:600;text-decoration:none;white-space:nowrap}
+
+/* Кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;font-family:var(--text);font-weight:600;font-size:16px;text-decoration:none;border:2px solid var(--ink);transition:transform .2s,background .2s,color .2s}
+.btn.main{background:var(--berry);border-color:var(--berry);color:#fff}
+.btn.main:hover{background:var(--ink);border-color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:#fff}
+.btn:active{transform:scale(.97)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* Первый экран */
+.hero{position:relative;overflow:hidden;min-height:calc(100svh - 120px);min-height:max(640px,calc(100svh - 120px));display:flex;flex-direction:column}
+.hero .wrap{position:relative;z-index:2;width:100%;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(16px,3vw,48px);align-items:end;flex:1;padding-top:clamp(8px,2vw,24px);padding-bottom:230px}
+.eyebrow{font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.eyebrow i{width:28px;height:2px;background:var(--gold);display:inline-block}
+h1{font-family:var(--display);font-weight:800;text-transform:uppercase;color:var(--berry);font-size:clamp(150px,27vw,400px);line-height:.82;letter-spacing:-.01em;margin:clamp(8px,2vw,20px) 0 0 -.04em;white-space:nowrap}
+.slogan{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(18px,2.2vw,30px);letter-spacing:.06em;line-height:1.15;margin-top:clamp(14px,2vw,26px);max-width:18em;background:#fff;display:inline-block;padding:6px 0}
+.lead{margin-top:10px;max-width:34em;font-size:clamp(16px,1.4vw,19px);background:#fff;display:inline-block}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.arch{justify-self:end;width:min(100%,430px);aspect-ratio:3/4;border-radius:999px 999px 18px 18px;overflow:hidden;background:var(--blush);border:6px solid #fff;box-shadow:0 0 0 2px var(--gold),0 30px 60px -30px rgba(20,17,26,.5);position:relative}
+.arch img{width:100%;height:100%;object-fit:cover}
+.arch figcaption{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(20,17,26,.7));color:#fff;font-size:13px;padding:36px 16px 14px;text-align:center}
+
+/* Шахматный пол */
+.floor-wrap{position:absolute;left:-10%;right:-10%;bottom:0;height:200px;z-index:1;perspective:420px;perspective-origin:50% 0;pointer-events:none}
+.floor{position:absolute;inset:0;transform-origin:50% 0;transform:rotateX(60deg) scale(1.3);height:300%;
+  background:conic-gradient(var(--ink) 25%,#fff 0 50%,var(--ink) 0 75%,#fff 0) 0 var(--shift,0px)/110px 110px;
+  -webkit-mask-image:linear-gradient(transparent 0,#000 30%);mask-image:linear-gradient(transparent 0,#000 30%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:46%;height:2px;background:var(--gold);z-index:1;opacity:.0}
+
+/* Секции */
+section{padding:clamp(56px,8vw,120px) 0}
+.kick{font-family:var(--display);font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--berry);display:flex;align-items:center;gap:12px}
+.kick svg{width:22px;height:22px;flex:none}
+h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(34px,6vw,84px);line-height:.95;margin-top:14px;letter-spacing:-.005em}
+h2 em{font-style:normal;color:var(--berry)}
+
+/* Услуги */
+.svc{background:var(--blush)}
+.svc-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,80px);margin-top:clamp(28px,4vw,56px);align-items:start}
+.menu{list-style:none;border-top:2px solid var(--ink)}
+.menu li{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:18px 0;border-bottom:1px solid rgba(20,17,26,.25);align-items:baseline}
+.menu .n{font-family:var(--display);font-weight:700;font-size:clamp(19px,2vw,26px);text-transform:uppercase;letter-spacing:.02em}
+.menu .d{grid-column:1;font-size:15px;color:#4b4452}
+.menu .p{grid-row:1;grid-column:2;font-family:var(--display);font-weight:800;font-size:clamp(20px,2.2vw,28px);color:var(--berry);white-space:nowrap;text-align:right}
+.menu .p.soft{font-family:var(--text);font-weight:500;font-size:15px;color:#4b4452}
+.note{margin-top:16px;font-size:15px;color:#4b4452}
+.svc-photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ph{background:#e9d3de;border-radius:14px;overflow:hidden;aspect-ratio:3/4;position:relative}
+.ph img{width:100%;height:100%;object-fit:cover}
+.svc-photos .ph:nth-child(2){margin-top:44px}
+.cap{position:absolute;left:10px;bottom:10px;background:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px}
+
+/* Работы */
+.works-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;margin-top:clamp(28px,4vw,56px);align-items:start}
+.works-grid .ph{border-radius:0}
+.w1{grid-column:1/6}.w2{grid-column:6/10;margin-top:60px}.w3{grid-column:10/13}
+.w4{grid-column:2/6}.w5{grid-column:7/11;margin-top:40px}
+.w3{margin-top:20px}
+.works-grid .ph:nth-child(odd){border-radius:999px 999px 0 0}
+
+/* Живая шахматка */
+.live{background:var(--ink);color:#fff;overflow:hidden}
+.live h2 em{color:var(--gold)}
+.board{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:0;margin-top:clamp(28px,4vw,56px);border:2px solid var(--gold)}
+.t{aspect-ratio:1;perspective:600px;position:relative;cursor:default}
+.t .in{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,.7,.2,1)}
+.t .f,.t .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4px;font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:1}
+.t .b{transform:rotateY(180deg)}
+.t.w .f{background:#fff;color:var(--ink)} .t.w .b{background:var(--ink);color:#fff}
+.t.k .f{background:var(--ink);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)} .t.k .b{background:#fff;color:var(--ink)}
+.t.m .f{background:var(--berry);color:#fff}.t.m .b{background:var(--blush);color:var(--berry)}
+.t.flip .in{transform:rotateY(180deg)}
+.t .big{font-size:clamp(18px,4.2vw,56px)}
+.t .sm{font-size:clamp(7px,1.15vw,13px);letter-spacing:.06em;margin-top:4px;font-family:var(--text);font-weight:600}
+@media (hover:hover){.t:hover .in{transform:rotateY(180deg)}}
+.live p.hint{margin-top:16px;color:#c9c3d1;font-size:15px}
+
+/* Отзывы */
+.rev{background:#fff}
+.quotes{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(16px,3vw,40px);margin-top:clamp(28px,4vw,56px)}
+blockquote{border-left:6px solid var(--berry);padding:6px 0 6px clamp(16px,2.5vw,32px);font-size:clamp(20px,2.4vw,32px);line-height:1.3;font-weight:500}
+blockquote cite{display:block;font-style:normal;font-size:14px;margin-top:14px;color:#4b4452;letter-spacing:.04em}
+blockquote.s{font-size:clamp(17px,1.6vw,21px);border-color:var(--gold)}
+.score{display:flex;align-items:baseline;gap:14px;margin-top:22px;flex-wrap:wrap}
+.score b{font-family:var(--display);font-weight:800;font-size:clamp(56px,8vw,110px);line-height:.9;color:var(--berry)}
+.score span{font-size:16px;max-width:16em}
+
+/* Контакты */
+.contacts{background:var(--berry);color:#fff}
+.contacts h2 em{color:var(--ink)}
+.c-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);margin-top:clamp(28px,4vw,56px)}
+.c-list{list-style:none;display:grid;gap:18px;font-size:18px}
+.c-list small{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;opacity:.8;font-weight:600}
+.c-list a{font-weight:600;text-underline-offset:4px}
+.c-list .big{font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,52px);text-decoration:none;line-height:1.05}
+.contacts .cta .btn.main{background:#fff;color:var(--berry);border-color:#fff}
+.contacts .cta .btn.main:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.contacts .cta .btn.line{border-color:#fff;color:#fff}
+.contacts .cta .btn.line:hover{background:#fff;color:var(--berry)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chips span{border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:4px 14px;font-size:14px}
+.mini-floor{height:40px;margin-top:clamp(28px,4vw,48px);background:conic-gradient(var(--ink) 25%,#fff 0 50%,var(--ink) 0 75%,#fff 0) 0 0/40px 40px}
+
+footer{background:var(--ink);color:#c9c3d1;padding:36px 0 120px;font-size:14px}
+footer .wrap{display:flex;gap:16px 40px;flex-wrap:wrap;justify-content:space-between}
+footer b{color:#fff;font-family:var(--display);letter-spacing:.06em;text-transform:uppercase}
+
+/* Нижняя панель */
+.dock{display:none}
+
+@media (max-width:900px){
+  .top nav{display:none}
+  .hero .wrap{grid-template-columns:1fr;align-items:start}
+  .arch{justify-self:start;width:min(62%,260px);margin-top:6px;position:relative;z-index:2}
+  .hero{min-height:0}
+  .hero .wrap{padding-bottom:150px}
+  .floor-wrap{height:130px}
+  .svc-grid,.quotes,.c-grid{grid-template-columns:1fr}
+  .svc-photos{order:-1}
+  .works-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .w1{grid-column:1/5}.w2{grid-column:4/7;margin-top:-30px}.w3{grid-column:1/4;margin-top:10px}.w4{grid-column:4/7;margin-top:40px}.w5{grid-column:2/6;margin-top:10px}
+  .board{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .board .x{display:none}
+  .dock{display:grid;grid-template-columns:1fr 1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:50;background:#fff;border-top:2px solid var(--ink);padding-bottom:env(safe-area-inset-bottom)}
+  .dock a{min-height:58px;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;text-decoration:none;border-right:1px solid rgba(20,17,26,.2)}
+  .dock a:last-child{border:0}
+  .dock a.rec{background:var(--berry);color:#fff}
+}
+@media (max-width:480px){
+  body{font-size:16px}
+  .top .tel{display:none}
+  .cta .btn{flex:1 1 100%}
+  .menu li{padding:14px 0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .t .in{transition:none}
+  .btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<div class="demo"><b>Демо-версия.</b> Это пример главной страницы, не официальный сайт салона. Подготовил Пётр Алексеев.</div>
+
+<header class="top">
+  <a class="logo" href="#top">ЭЛЬ</a>
+  <nav aria-label="Разделы">
+    <a href="#uslugi">Услуги и цены</a>
+    <a href="#raboty">Работы</a>
+    <a href="#otzyv">Отзывы</a>
+    <a href="#kontakty">Контакты</a>
+  </nav>
+  <a class="tel" href="tel:+79266065810">+7 (926) 606-58-10</a>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow"><i></i>Салон красоты · ул. Николаева, 9 · ежедневно 10–21</div>
+      <h1 id="h1">Эль</h1>
+      <p class="slogan">Стрижка. Ногти. Уход. Для неё и для него.</p>
+      <p class="lead">Записывайтесь заранее по телефону или в WhatsApp. Оплата картой, рядом парковка.</p>
+      <div class="cta">
+        <a class="btn main" href="https://wa.me/79266065810">Записаться в WhatsApp</a>
+        <a class="btn line" href="tel:+79266065810">Позвонить</a>
+      </div>
+    </div>
+    <figure class="arch">
+      <img src="https://avatars.mds.yandex.net/get-altay/6195924/2a00000190541194dda55c3e7c6ab9eef8fb/XXXL" width="960" height="1280" alt="Длинный зал салона «Эль» с креслами и шахматным полом" fetchpriority="high">
+    </figure>
+  </div>
+  <div class="floor-wrap" aria-hidden="true"><div class="floor" id="floor"></div></div>
+</div>
+
+<section id="uslugi" class="svc">
+  <div class="wrap">
+    <div class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A24A" stroke-width="2" stroke-linecap="round"><path d="M12 12c0-4 4-6 6-4s0 5-3 5-5-3-4-6 5-4 8-2"/></svg>Услуги и цены</div>
+    <h2>Всё для <em>красоты</em><br>в одном месте</h2>
+    <div class="svc-grid">
+      <div>
+        <ul class="menu">
+          <li><span class="n">Маникюр с покрытием</span><span class="p">800–2 000 ₽</span><span class="d">Классический женский</span></li>
+          <li><span class="n">Женская стрижка</span><span class="p">950–1 000 ₽</span><span class="d">Парикмахерский зал</span></li>
+          <li><span class="n">Мужская стрижка</span><span class="p">900–1 500 ₽</span><span class="d">Барбершоп</span></li>
+          <li><span class="n">Окрашивание, хна</span><span class="p soft">по прайсу</span><span class="d">Окрашивание и окрашивание хной</span></li>
+          <li><span class="n">Педикюр</span><span class="p soft">по прайсу</span><span class="d">Педикюрное кресло</span></li>
+          <li><span class="n">Наращивание ногтей</span><span class="p soft">по прайсу</span></li>
+          <li><span class="n">Мужской ногтевой сервис</span><span class="p soft">по прайсу</span></li>
+          <li><span class="n">Косметология</span><span class="p soft">по прайсу</span></li>
+          <li><span class="n">Эпиляция</span><span class="p soft">по прайсу</span></li>
+          <li><span class="n">Подарочные сертификаты</span><span class="p soft">по запросу</span><span class="d">Малиновый сертификат с бантом</span></li>
+        </ul>
+        <p class="note">Точную стоимость подскажем при записи: по телефону или в WhatsApp.</p>
+      </div>
+      <div class="svc-photos">
+        <div class="ph"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/367512/2a0000015dcc7c2748ca7ec00b512af56254/XXXL" width="960" height="1280" alt="Подарочный сертификат «Эль» с бантом"><span class="cap">Сертификат</span></div>
+        <div class="ph"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/7979597/2a00000190541194865ac063278ad465dc38/XXXL" width="960" height="1280" alt="Педикюрное кресло и золотой завиток на стене"><span class="cap">Педикюр</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="raboty">
+  <div class="wrap">
+    <div class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A24A" stroke-width="2" stroke-linecap="round"><path d="M12 12c0-4 4-6 6-4s0 5-3 5-5-3-4-6 5-4 8-2"/></svg>Работы</div>
+    <h2>Салон <em>изнутри</em></h2>
+    <div class="works-grid">
+      <div class="ph w1"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/11924971/2a000001905411984a28e85a4973ed2cfc98/XXXL" width="960" height="1280" alt="Зал с золотым завитком на стене и шахматной плиткой"></div>
+      <div class="ph w2"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/11203687/2a000001905411990f51a5485549f9f16c84/XXXL" width="960" height="1280" alt="Ресепшен с белой стойкой"></div>
+      <div class="ph w3"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/7668046/2a00000188ca5ef12a99fd12cf78dc6b8923/XXXL" width="960" height="1280" alt="Кабинет косметолога"></div>
+      <div class="ph w4"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/13757584/2a00000190541194a915cf818e317af4143d/XXXL" width="960" height="1280" alt="Кабинет с кушеткой и витриной"></div>
+      <div class="ph w5"><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/11124269/2a00000190541194585b4b5a56827712372d/XXXL" width="960" height="1280" alt="Светлый кабинет"></div>
+    </div>
+  </div>
+</section>
+
+<section class="live" aria-labelledby="live-h">
+  <div class="wrap">
+    <div class="kick" style="color:var(--gold)"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A24A" stroke-width="2" stroke-linecap="round"><path d="M12 12c0-4 4-6 6-4s0 5-3 5-5-3-4-6 5-4 8-2"/></svg>Шахматка Эль</div>
+    <h2 id="live-h">Переверни <em>плитку</em></h2>
+    <div class="board" id="board">
+      <div class="t w"><div class="in"><div class="f"></div><div class="b"><span class="big">4,9</span><span class="sm">Яндекс Карты</span></div></div></div>
+      <div class="t k"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t m"><div class="in"><div class="f"><span class="big">470</span><span class="sm">оценок</span></div><div class="b"><span class="big">★</span></div></div></div>
+      <div class="t k"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t w"><div class="in"><div class="f"></div><div class="b"><span class="big">10–21</span><span class="sm">ежедневно</span></div></div></div>
+      <div class="t k"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t m x"><div class="in"><div class="f"><span class="big">P</span><span class="sm">парковка</span></div><div class="b"><span class="big">✓</span></div></div></div>
+      <div class="t k x"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+
+      <div class="t k"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t w"><div class="in"><div class="f"></div><div class="b"><span class="big">Для неё</span></div></div></div>
+      <div class="t k"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t m"><div class="in"><div class="f"><span class="big">Эль</span></div><div class="b"><span class="big">♥</span></div></div></div>
+      <div class="t k"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t w"><div class="in"><div class="f"></div><div class="b"><span class="big">Для него</span></div></div></div>
+      <div class="t k x"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t w x"><div class="in"><div class="f"></div><div class="b"><span class="big">Wi-Fi</span></div></div></div>
+
+      <div class="t w"><div class="in"><div class="f"></div><div class="b"><span class="big">Карта</span><span class="sm">оплата</span></div></div></div>
+      <div class="t k"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t w"><div class="in"><div class="f"></div><div class="b"><span class="big">Бар&shy;бер</span></div></div></div>
+      <div class="t k"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t m"><div class="in"><div class="f"><span class="big">Ногти</span></div><div class="b"><span class="big">800+</span><span class="sm">рублей</span></div></div></div>
+      <div class="t k"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+      <div class="t w x"><div class="in"><div class="f"></div><div class="b"><span class="big">Вело</span><span class="sm">парковка</span></div></div></div>
+      <div class="t k x"><div class="in"><div class="f"></div><div class="b"></div></div></div>
+    </div>
+    <p class="hint">Наведите курсор на плитки. На телефоне они переворачиваются сами, когда доскроллите сюда.</p>
+  </div>
+</section>
+
+<section id="otzyv" class="rev">
+  <div class="wrap">
+    <div class="kick"><svg viewBox="0 0 24 24" fill="none" stroke="#C9A24A" stroke-width="2" stroke-linecap="round"><path d="M12 12c0-4 4-6 6-4s0 5-3 5-5-3-4-6 5-4 8-2"/></svg>Отзывы гостей</div>
+    <h2>После них чувствуешь себя <em>королевой</em></h2>
+    <div class="quotes">
+      <div>
+        <blockquote>Маникюр и педикюр огонь! Рекомендую! Мастер Елена, внимательна и аккуратная. Большой выбор цветовой гаммы, уютно, комфортно!<cite>Из отзыва на Яндекс Картах</cite></blockquote>
+        <blockquote class="s" style="margin-top:28px">Хочется выразить огромную благодарность мастеру-парикмахеру Юле и косметологу Але… После них чувствуешь себя просто королевой.<cite>Из отзыва на Яндекс Картах</cite></blockquote>
+      </div>
+      <div>
+        <div class="score"><b>4,9</b><span>рейтинг по 470 оценкам на Яндекс Картах</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kontakty" class="contacts">
+  <div class="wrap">
+    <div class="kick" style="color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 12c0-4 4-6 6-4s0 5-3 5-5-3-4-6 5-4 8-2"/></svg>Контакты</div>
+    <h2>Запись <em>заранее</em></h2>
+    <div class="c-grid">
+      <ul class="c-list">
+        <li><small>Телефон</small><a class="big" href="tel:+79266065810">+7 (926) 606-58-10</a></li>
+        <li><small>Городской</small><a href="tel:+74965770157">+7 (49657) 7-01-57</a></li>
+        <li><small>Адрес</small>Электросталь, ул. Николаева, 9</li>
+        <li><small>Часы работы</small>Ежедневно 10:00–21:00</li>
+        <li><small>Мы в соцсетях</small><span><a href="https://vk.ru/salonkrasotyelle">VK</a> · <a href="https://ok.ru/50770632048713">Одноклассники</a></span></li>
+      </ul>
+      <div>
+        <div class="cta" style="margin-top:0">
+          <a class="btn main" href="https://wa.me/79266065810">Написать в WhatsApp</a>
+          <a class="btn line" href="https://yandex.ru/maps/org/el/1047246612/">Маршрут на Яндекс Картах</a>
+        </div>
+        <div class="chips"><span>Парковка</span><span>Велопарковка</span><span>Wi-Fi</span><span>Оплата картой</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="mini-floor" aria-hidden="true"></div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Эль</b> · салон красоты<br>Электросталь, ул. Николаева, 9</div>
+    <div>Демо-версия главной страницы. Подготовил Пётр Алексеев.<br>Не является официальным сайтом салона.</div>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Быстрая связь">
+  <a class="rec" href="https://wa.me/79266065810">Записаться</a>
+  <a href="tel:+79266065810">Позвонить</a>
+  <a href="https://yandex.ru/maps/org/el/1047246612/">Маршрут</a>
+</nav>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  var floor = document.getElementById('floor'), ticking = false;
+  window.addEventListener('scroll', function(){
+    if(ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      if(window.scrollY < 1200) floor.style.setProperty('--shift', (window.scrollY * 0.35) + 'px');
+      ticking = false;
+    });
+  }, {passive:true});
+
+  // Волна переворота плиток при появлении (для телефонов, где нет hover)
+  var board = document.getElementById('board');
+  var tiles = board.querySelectorAll('.t');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        tiles.forEach(function(t,i){
+          setTimeout(function(){ t.classList.add('flip'); }, i*50);
+          setTimeout(function(){ t.classList.remove('flip'); }, 1800 + i*50);
+        });
+        io.disconnect();
+      });
+    }, {threshold:.4});
+    io.observe(board);
+  }
+  tiles.forEach(function(t){ t.addEventListener('click', function(){ t.classList.toggle('flip'); }); });
+})();
+</script>
+</body>
+</html>
