@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Кот — магазин цветов в Электростали (демо)</title>
+<meta name="description" content="Демо-версия главной страницы магазина цветов «Кот», Электросталь, просп. Ленина, 47/12.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Shantell+Sans:wght@700;800&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --orange:#F26B1D; --coffee:#231712; --milk:#FFF6EA; --leaf:#2E7D55; --pink:#F7B7C6;
+  --head:"Shantell Sans","Comic Sans MS","Marker Felt","Trebuchet MS",sans-serif;
+  --body:"Nunito","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  --ph:#e6d2c0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);color:var(--coffee);background:var(--milk);line-height:1.5;font-size:17px;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto;background-color:var(--ph);object-fit:cover}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);font-weight:800;line-height:1.08;letter-spacing:-.01em}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--coffee);outline-offset:3px}
+
+/* demo ribbon */
+.demo{background:var(--coffee);color:var(--milk);font-size:13px;text-align:center;padding:8px 16px;line-height:1.35}
+.demo b{background:var(--pink);color:var(--coffee);border-radius:99px;padding:1px 9px;margin-right:6px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 26px;border-radius:99px;font:700 17px var(--body);text-decoration:none;border:2px solid var(--coffee);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--coffee);color:var(--milk)}
+.btn-light{background:transparent;color:var(--coffee)}
+.btn-wa{background:var(--leaf);border-color:var(--leaf);color:#fff}
+
+/* hero */
+.hero{background:var(--orange);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:56px 0 72px}
+.logo{display:inline-flex;align-items:center;gap:10px;font:800 22px var(--head);letter-spacing:.04em;margin-bottom:28px;text-decoration:none}
+.logo small{font:600 14px var(--body);letter-spacing:0;opacity:.85}
+.hero h1{font-size:clamp(34px,5.4vw,76px);color:var(--coffee);overflow-wrap:break-word}
+.hero h1 em{font-style:normal;color:var(--milk)}
+.hero p.lead{font-size:clamp(17px,1.6vw,21px);margin:22px 0 30px;max-width:30em;font-weight:600}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero .meta{margin-top:26px;font-weight:700;font-size:15px}
+.hero .meta span{display:inline-block;margin-right:16px}
+
+/* chat */
+.chat{display:flex;flex-direction:column;gap:10px;max-width:400px;width:100%;margin-inline:auto}
+.chat-head{font:700 14px var(--body);color:var(--coffee);opacity:.8;text-align:center;margin-bottom:4px}
+.b{max-width:86%;padding:12px 16px;border-radius:20px;font-weight:600;font-size:16px;opacity:0;transform:translateY(14px) scale(.96);transition:opacity .4s,transform .4s}
+.b.show{opacity:1;transform:none}
+.b.me{align-self:flex-end;background:var(--coffee);color:var(--milk);border-bottom-right-radius:6px}
+.b.cat{align-self:flex-start;background:var(--milk);border-bottom-left-radius:6px}
+.b.photo{padding:6px;width:min(250px,78%)}
+.b.photo img{border-radius:15px;aspect-ratio:3/4;width:100%}
+.b.photo span{display:block;padding:8px 6px 4px;font-size:15px}
+.b.typing{align-self:flex-start;background:var(--milk);border-bottom-left-radius:6px;letter-spacing:.3em;font-weight:800}
+.b.typing.show{animation:blink 1s infinite}
+@keyframes blink{50%{opacity:.35}}
+.no-js .b{opacity:1;transform:none}
+
+/* sections */
+section{padding:88px 0}
+.kicker{font:700 14px var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--leaf);margin-bottom:12px}
+h2{font-size:clamp(30px,4.2vw,52px);margin-bottom:36px;max-width:16em}
+
+/* services */
+.services{background:var(--milk)}
+.grid-s{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border:2px solid var(--coffee);border-radius:24px;padding:26px}
+.card:nth-child(3n+2){background:var(--pink)}
+.card h3{font-size:24px;margin-bottom:10px}
+.card p{font-size:16px}
+.price{display:inline-block;margin-top:14px;font-weight:800;font-size:14px;background:var(--milk);border-radius:99px;padding:3px 12px;border:1.5px solid var(--coffee)}
+.also{margin-top:28px;font-weight:600;max-width:60em}
+.also b{font-family:var(--head)}
+
+/* works */
+.works{background:var(--coffee);color:var(--milk)}
+.works .kicker{color:var(--pink)}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.gal figure{position:relative;border-radius:20px;overflow:hidden}
+.gal img{width:100%;aspect-ratio:3/4;transition:transform .5s}
+.gal figure:hover img{transform:scale(1.04)}
+.gal figure:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal figure:nth-child(1) img{height:100%;aspect-ratio:auto}
+.gal figcaption{position:absolute;left:10px;bottom:10px;background:var(--milk);color:var(--coffee);font-weight:700;font-size:14px;border-radius:99px;padding:3px 12px}
+
+/* review + live */
+.talk .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.quote{background:var(--pink);border:2px solid var(--coffee);border-radius:28px;padding:34px}
+.quote blockquote{font:700 clamp(20px,2vw,26px)/1.35 var(--head)}
+.quote p.src{margin-top:18px;font-weight:700;font-size:15px}
+.quote .stars{font-size:22px;letter-spacing:.1em;margin-bottom:14px}
+.quote + .quote{margin-top:18px;background:var(--milk)}
+.quote + .quote blockquote{font-size:clamp(18px,1.8vw,22px)}
+.chat2{background:var(--orange);border-radius:28px;padding:28px;position:sticky;top:20px}
+
+/* contacts */
+.contacts{background:var(--leaf);color:var(--milk)}
+.contacts .kicker{color:var(--pink)}
+.contacts .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px}
+.contacts dl{display:grid;gap:16px;margin-bottom:28px}
+.contacts dt{font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink)}
+.contacts dd{font-size:20px;font-weight:600}
+.contacts .btn-light{border-color:var(--milk);color:var(--milk)}
+.contacts .btn-wa{background:var(--milk);color:var(--coffee);border-color:var(--milk)}
+.shopimg{border-radius:28px;width:100%;aspect-ratio:3/4}
+
+footer{background:var(--coffee);color:var(--milk);padding:36px 0 40px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between}
+footer a{text-decoration:underline}
+
+/* bottom bar */
+.bar{display:none}
+
+@media (max-width:900px){
+  body{font-size:16px}
+  .hero .wrap{grid-template-columns:1fr;gap:36px;padding:32px 0 48px}
+  section{padding:56px 0}
+  .grid-s{grid-template-columns:1fr}
+  .gal{grid-template-columns:repeat(2,1fr);gap:10px}
+  .gal figure:nth-child(1){grid-column:span 2;grid-row:auto}
+  .gal figure:nth-child(1) img{aspect-ratio:3/4;height:auto}
+  .talk .wrap,.contacts .wrap{grid-template-columns:1fr;gap:32px}
+  .chat2{position:static;padding:20px}
+  .hero .cta .btn{flex:1 1 100%}
+  body{padding-bottom:76px}
+  .bar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--coffee);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+  .bar a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:99px;font:700 15px var(--body);text-decoration:none;color:var(--milk);border:2px solid var(--milk)}
+  .bar a.wa{background:var(--orange);border-color:var(--orange);color:var(--coffee)}
+}
+@media (prefers-reduced-motion:reduce){
+  .b{transition:none}.b.typing.show{animation:none}.btn,.gal img{transition:none}
+}
+</style>
+</head>
+<body class="no-js">
+<div class="demo"><b>Демо</b>Демо-версия, не официальный сайт магазина. Подготовил Пётр Алексеев.</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#top" id="top">КОТ <small>магазин цветов</small></a>
+      <h1>Кот присылает фото, <em>потом</em> собирает</h1>
+      <p class="lead">Напишите, для кого и по какому поводу. Мы соберём букет, сначала пришлём вам снимок, и только когда понравится, отправим или будет ждать в магазине.</p>
+      <div class="cta">
+        <a class="btn btn-dark" href="https://wa.me/79264111580">Написать в WhatsApp</a>
+        <a class="btn btn-light" href="tel:+79264111580">Позвонить</a>
+      </div>
+      <p class="meta"><span>Электросталь, просп. Ленина, 47/12</span><span>Ежедневно 9:00–21:00</span></p>
+    </div>
+    <div class="chat" id="chat1" aria-label="Пример переписки с магазином">
+      <div class="chat-head">Кот · магазин цветов</div>
+      <div class="b me">Хочу букет дочке на день рождения</div>
+      <div class="b typing">...</div>
+      <div class="b cat">Вот что соберём</div>
+      <div class="b cat photo"><img src="https://avatars.mds.yandex.net/get-altay/19840634/2a000001a032f2f29b969805af14bf3c21dd/XXXL" width="960" height="1280" alt="Букет с подсолнухом, розовыми и белыми цветами в розовой коробке"><span>Нравится? Тогда собираем</span></div>
+      <div class="b me">Да, беру</div>
+    </div>
+  </div>
+</header>
+
+<section class="services" id="uslugi">
+  <div class="wrap">
+    <p class="kicker">Услуги и цены</p>
+    <h2>Что можно заказать у Кота</h2>
+    <div class="grid-s">
+      <div class="card"><h3>Букеты</h3><p>Собираем под повод и бюджет. Перед сборкой присылаем фото.</p><span class="price">цена по запросу</span></div>
+      <div class="card"><h3>Доставка</h3><p>Есть бесплатная и экспресс-доставка. Можно забрать самому в магазине.</p><span class="price">цена по запросу</span></div>
+      <div class="card"><h3>Свадебная флористика</h3><p>Оформление и букеты для свадьбы.</p><span class="price">цена по запросу</span></div>
+      <div class="card"><h3>Комнатные растения и кашпо</h3><p>Растения, кашпо, флорариумы.</p><span class="price">цена по запросу</span></div>
+      <div class="card"><h3>Сухоцветы и стабилизированные</h3><p>Стабилизированные цветы, сухоцветы, цветы в колбе.</p><span class="price">цена по запросу</span></div>
+      <div class="card"><h3>Шары и подарки</h3><p>Шары с гелием, мягкие игрушки, открытки, подарочная упаковка.</p><span class="price">цена по запросу</span></div>
+    </div>
+    <p class="also"><b>Ещё:</b> новогоднее оформление, товары для флористов. Есть скидочная карта, оплата картой.</p>
+  </div>
+</section>
+
+<section class="works" id="raboty">
+  <div class="wrap">
+    <p class="kicker">Работы</p>
+    <h2>Букеты, которые мы уже собрали</h2>
+    <div class="gal">
+      <figure><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/20242116/2a000001a032f2dff3b9d05efe2e9bd0d861/XXXL" width="960" height="1280" alt="Два букета, кремовый и розовый"><figcaption>кремовый и розовый</figcaption></figure>
+      <figure><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/19840634/2a000001a032f2e2614b4b9f7fb21d339c43/XXXL" width="960" height="1280" alt="Букет с герберами и хризантемами"><figcaption>герберы</figcaption></figure>
+      <figure><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/20967380/2a000001a032f2f1f6e56b859c7c8837e457/XXXL" width="960" height="1280" alt="Корзина с розами в жёлтой коробке"><figcaption>розы в корзине</figcaption></figure>
+      <figure><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/9837233/2a00000189d9b2cb8538cd2756c54518e212/XXXL" width="960" height="1280" alt="Розово-персиковый букет в упаковке"><figcaption>персиковый</figcaption></figure>
+      <figure><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/4667561/2a0000017922a510a7f557e23230e1ecec37/XXXL" width="960" height="1280" alt="Шары с гелием, цифра"><figcaption>шар-цифра</figcaption></figure>
+      <figure><img loading="lazy" src="https://avatars.mds.yandex.net/get-altay/7695774/2a0000018ad4d1d264ac88414b509dac1361/XXXL" width="960" height="1280" alt="Пёстрая витрина с цветами и игрушками"><figcaption>витрина</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="talk" id="otzyv">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Отзывы · 5,0 на Яндекс Картах, 352 оценки</p>
+      <h2>Говорят, что быстро и красиво</h2>
+      <figure class="quote">
+        <div class="stars" aria-label="5 из 5">★★★★★</div>
+        <blockquote>«Менеджер очень внимательно отнеслась к пожеланиям, помогла подобрать композицию, чтобы было и красиво, и не слишком дорого. Букет собрали быстро… сначала прислали фото»</blockquote>
+        <p class="src">Отзыв на Яндекс Картах</p>
+      </figure>
+      <figure class="quote">
+        <blockquote>«Всегда свежайшие цветы, всегда быстро и оперативно подскажут и соберут, даже онлайн, самую стильную композицию!»</blockquote>
+        <p class="src">Отзыв на Яндекс Картах</p>
+      </figure>
+    </div>
+    <div class="chat2">
+      <div class="chat" id="chat2" aria-label="Пример переписки о доставке">
+        <div class="chat-head">Дальше в чате</div>
+        <div class="b me">А доставка есть?</div>
+        <div class="b typing">...</div>
+        <div class="b cat">Есть. Бесплатная и экспресс. Или заберите в магазине</div>
+        <div class="b me">Цена?</div>
+        <div class="b cat">Назовём по запросу, когда уточним, что собираем</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacts" id="kontakty">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Контакты</p>
+      <h2>Напишите коту</h2>
+      <dl>
+        <div><dt>Адрес</dt><dd>Электросталь, просп. Ленина, 47/12. Парковка, можно с собакой, есть Wi-Fi</dd></div>
+        <div><dt>Часы</dt><dd>Ежедневно 9:00–21:00</dd></div>
+        <div><dt>Телефон</dt><dd><a href="tel:+79264111580">+7 (926) 411-15-80</a></dd></div>
+      </dl>
+      <div class="cta">
+        <a class="btn btn-wa" href="https://wa.me/79264111580">WhatsApp</a>
+        <a class="btn btn-light" href="https://t.me/catflowersstore">Telegram</a>
+        <a class="btn btn-light" href="https://vk.ru/cat_flowers_store">VK</a>
+        <a class="btn btn-light" href="https://yandex.ru/maps/org/kot/124002789189/">Маршрут на карте</a>
+      </div>
+    </div>
+    <img class="shopimg" loading="lazy" src="https://avatars.mds.yandex.net/get-altay/3933982/2a000001765ffc17445e3e71c4fdb49e4fe9/XXXL" width="960" height="1280" alt="Вход в магазин «Кот», оранжевый фасад и фонарь">
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>КОТ, магазин цветов · Электросталь, просп. Ленина, 47/12</div>
+    <div>Демо-версия. Подготовил Пётр Алексеев. Фото и данные: <a href="https://yandex.ru/maps/org/kot/124002789189/">Яндекс Карты</a></div>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Быстрая связь">
+  <a class="wa" href="https://wa.me/79264111580">WhatsApp</a>
+  <a href="tel:+79264111580">Позвонить</a>
+  <a href="https://yandex.ru/maps/org/kot/124002789189/">Маршрут</a>
+</nav>
+
+<script>
+(function(){
+  document.body.classList.remove('no-js');
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function play(box){
+    var items=[].slice.call(box.children).filter(function(e){return e.classList.contains('b')});
+    var i=0;
+    (function next(){
+      if(i>=items.length)return;
+      var el=items[i++];
+      el.classList.add('show');
+      if(el.classList.contains('typing')){
+        setTimeout(function(){el.style.display='none';next()},reduce?0:1100);
+      }else setTimeout(next,reduce?0:850);
+    })();
+  }
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);play(e.target)}});
+  },{threshold:.35});
+  document.querySelectorAll('.chat').forEach(function(c){io.observe(c)});
+})();
+</script>
+</body>
+</html>
